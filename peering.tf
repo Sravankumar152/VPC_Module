@@ -12,4 +12,13 @@ resource "aws_vpc_peering_connection" "main" {
     allow_remote_vpc_dns_resolution = true
   }
 
+tags = merge(
+    local.commontags,
+    {
+        Name = "${var.project}-${var.environment}-default"
+    }
+    
+)
+
+
 }
